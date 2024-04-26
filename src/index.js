@@ -1,10 +1,11 @@
-const { log } = require("console");
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
+
+const port = process.env.PORT || 2000
 const io = new Server(server, {
   cors: {
     origin: "*", // Replace with your Angular app's origin
@@ -112,7 +113,7 @@ io.on("connection", (socket) => {
     });
   });
 });
-// Start the server on port 2000
-server.listen(2000, () => {
+
+server.listen(port, () => {
   console.log("Signaling server is running on port 2000");
 });
