@@ -5,6 +5,10 @@ const { Server } = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 
+app.get('/',(req,res)=> {
+  res.send("WebRCT server working")
+})
+
 const port = process.env.PORT || 2000
 const io = new Server(server, {
   cors: {
